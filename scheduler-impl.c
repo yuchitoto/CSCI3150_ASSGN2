@@ -11,11 +11,11 @@ typedef struct ProcessQ
 
 void outprint(int time_x, int time_y, int pid, int arrival_time, int remaining_time);
 
-int compar(const void *a, const vois *b)
+int compar(const void *a, const void *b)
 {
   ProcessQ *pA = (ProcessQ*)a;
   ProcessQ *pB = (ProcessQ*)b;
-  return (pA->some_process->process_id - pB->some_process->process_id);
+  return (pA->some_process.process_id - pB->some_process.process_id);
 }
 
 //this part is going to simulate how it the MLFQ is going to work, instead of actually running it
@@ -31,7 +31,10 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
     }
 
     int all_proc_done = 1, current_time = proc[0].arrival_time, current_proc = 0, curS = 1;
-    int proc_exe_time[proc_num] = {0}, proc_q_no[proc_num] = {queue_num-1};//because the fucking max queue in the cfg file is 5
+    int proc_exe_time[proc_num];
+    memset(proc_exe_time, 0, proc_num*sizeof(int));
+    int proc_q_no[proc_num];
+    memset(proc_q_no, queue_num-1, proc_num*sizeof(int));//because the fucking max queue in the cfg file is 5
     int timebuf;
     int base_n = 0, base_p = 0;
     ProcessQ base_pid[proc_num];
@@ -42,7 +45,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       {
         curS++;
         for(int k=0;k<proc_num;k++)
-          proc_q_no[k] = (proc_q_no[k]==-1)?-1:5;
+          proc_q_no[k] = (proc_q_no[k]==-1)?-1:queue_num-1;
         base_n = 0;
       }
 
@@ -57,12 +60,12 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       }
       if(proc_q_no[current_proc]==0)  //rr
       {
-        current_proc = base_pid[base_p]->proc_inbuf_no;
+        current_proc = base_pid[base_p].proc_inbuf_no;
         base_p++;
         base_p = (base_p<base_n)?base_p:0;
       }
 
-      outprint(current_time, (timebuf = current_time + (ProcessQueue[proc_q_no[current_proc]]->time_slice < (proc[current_proc].execution_time - proc_exe_time[current_proc]))?ProcessQueue[proc_q_no[current_proc]]->time_slice:(proc[current_proc].execution_time - proc_exe_time[current_proc])), proc[current_proc].process_id, proc[current_proc].arrival_time, proc[current_proc].execution_time - proc_exe_time[current_proc]);
+      outprint(current_time, (timebuf = current_time + (ProcessQueue[proc_q_no[current_proc]]->time_slice < (proc[current_proc].execution_time - proc_exe_time[current_proc]))?ProcessQueue[proc_q_no[current_proc]]->time_slice:(proc[current_proc].execution_time - proc_exe_time[current_proc])), proc[current_proc].process_id, proc[current_proc].arrival_time, proc[current_proc].execution_time - proc_exe_time[current_proc]); //sigsev found for this line, use gdb to debug
       current_time = timebuf;
       proc_exe_time[current_proc] += (ProcessQueue[proc_q_no[current_proc]]->time_slice < (proc[current_proc].execution_time - proc_exe_time[current_proc]))?ProcessQueue[proc_q_no[current_proc]]->time_slice:(proc[current_proc].execution_time - proc_exe_time[current_proc]);
 
