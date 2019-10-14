@@ -5,6 +5,7 @@
 
 void outprint(int time_x, int time_y, int pid, int arrival_time, int remaining_time);
 
+//this part is going to simulate how it the MLFQ is going to work, instead of actually running it
 void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queue_num, int period){
     printf("Process number: %d\n", proc_num);
     for (int i = 0;i < proc_num; i++)
