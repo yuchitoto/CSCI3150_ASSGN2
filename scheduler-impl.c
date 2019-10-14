@@ -3,11 +3,19 @@
 #include <string.h>
 #include "lab5_queue.h"
 
+typedef struct ProcessQ
+{
+  int proc_inbuf_no;
+  Process some_process;
+} ProcessQ;
+
 void outprint(int time_x, int time_y, int pid, int arrival_time, int remaining_time);
 
 int compar(const void *a, const vois *b)
 {
-  return (*(int*)a - *(int*)b);
+  ProcessQ *pA = (ProcessQ*)a;
+  ProcessQ *pB = (ProcessQ*)b;
+  return (pA->some_process->process_id - pB->some_process->process_id);
 }
 
 //void base_rr()
@@ -27,12 +35,20 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
     /*
        Test outprint function, it will output "Time_slot:1-2, pid:3, arrival-time:4, remaining_time:5" to output.loc file.
     */
-    int all_proc_done = 1, current_time = proc[0].arrival_time, current_proc = 0;
+    int all_proc_done = 1, current_time = proc[0].arrival_time, current_proc = 0, curS = 1;
     int proc_exe_time[proc_num] = {0}, proc_q_no[proc_num] = {5};
     int timebuf;
-    int base_pid[proc_num], base_n = 0, base_p = 0;
+    int base_n = 0, base_p = 0;
+    ProcessQ base_pid[proc_num];
     while(all_proc_done != 0)
     {
+      //reset
+      if(current_time>curS*period)
+      {
+        curS++;
+        for(int k=0;k<proc_num;k++)
+          proc_q_no[k] = (proc_q_no[k]==-1)?-1:5;
+      }
       current_proc = 0;
       for(int chk_proc = 0; chk_proc < proc_num; current_proc++)
       {
@@ -41,16 +57,45 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           current_proc = (proc_q_no[chk_proc]>proc_q_no[current_proc])?chk_proc:current_proc;
         }
       }
+      if(proc_q_no[current_proc]==0)
+      {
+        current_proc = base_pid[base_p].proc_inbuf_no;
+        base_p++;
+        base_p = (base_p<base_n)?base_p:0;
+      }
+
+      if(proc_q_no[current_proc]==0)
+        current_proc = base_pid[base_p];
       outprint(current_time, (timebuf = current_time + (ProcessQueue[proc_q_no[current_proc]]->time_slice < (proc[current_proc].execution_time - proc_exe_time[current_proc]))?ProcessQueue[proc_q_no[current_proc]]->time_slice:(proc[current_proc].execution_time - proc_exe_time)), proc[current_proc].process_id, proc[current_proc].arrival_time, proc[current_proc].execution_time - proc_exe_time[current_proc]);
       current_time = timebuf;
       proc_exe_time[current_proc] += (ProcessQueue[proc_q_no[current_proc]]->time_slice < (proc[current_proc].execution_time - proc_exe_time[current_proc]))?ProcessQueue[proc_q_no[current_proc]]->time_slice:(proc[current_proc].execution_time - proc_exe_time[current_proc]);
-      proc_q_no[current_proc] -= (proc_q_no[current_proc]>0)?1:0;
+      if(proc_exe_time[current_proc] == proc[current_proc].execution_time)
+      {
+        if(proc_q_no[current_proc]==0)
+        {
+          int b=0;
+          for(int k=0;k<base_n;k++)
+          {
+            if(base_pid[k].some_process.process_id == proc[current_proc].process_id)
+              b=1;
+            if(b==1 && k+1<base_n)
+            {
+              base_pid[k] = base_pid[k+1];
+            }
+          }
+          base_n--;
+        }
+        proc_q_no[current_proc] = -1;
+      }
+      else
+        proc_q_no[current_proc] -= (proc_q_no[current_proc]>0)?1:0;
       if(proc_q_no[current_proc] == 0)
       {
-        base_pid[base_n] = proc[current_proc].process_id;
+        base_pid[base_n].proc_inbuf_no = current_proc;
+        base_pid[base_n].some_process = proc[current_proc];
         base_n++;
         if(base_p>1)
-          qsort(base_pid, base_n, sizeof(int), compar);
+          qsort(base_pid, base_n, sizeof(ProcessQ), compar);
       }
       /*
       if all proc done -> all_proc_done = 0
