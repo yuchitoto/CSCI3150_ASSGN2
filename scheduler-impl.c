@@ -2,8 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lab5_queue.h"
+#define BASE_QUEUE 0
+#define TOP_QUEUE 5
 
 void outprint(int time_x, int time_y, int pid, int arrival_time, int remaining_time);
+
+//void base_rr()
 
 //this part is going to simulate how it the MLFQ is going to work, instead of actually running it
 void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queue_num, int period){
@@ -20,7 +24,15 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
     /*
        Test outprint function, it will output "Time_slot:1-2, pid:3, arrival-time:4, remaining_time:5" to output.loc file.
     */
+    int all_proc_done = 1;
+    int proc_remain_time[proc_num];
+    while(all_proc_done != 0)
+    {
+
+      /*
+      if all proc done -> all_proc_done = 0
+      */
+    }
     outprint(1,2,3,4,5);
 
 }
-
