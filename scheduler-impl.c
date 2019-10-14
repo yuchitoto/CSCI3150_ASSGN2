@@ -45,12 +45,14 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           proc_q_no[k] = (proc_q_no[k]==-1)?-1:5;
         base_n = 0;
       }
+
+      //choose proc
       current_proc = 0;
       for(int chk_proc = 0; chk_proc < proc_num; chk_proc++)
       {
         if(proc[chk_proc].arrival_time >= current_time && (proc[chk_proc].execution_time - proc_exe_time[chk_proc])!=0)
         {
-          current_proc = (proc_q_no[chk_proc]>proc_q_no[current_proc])?chk_proc:current_proc;
+          current_proc = (proc_q_no[chk_proc]>proc_q_no[current_proc])?chk_proc:(proc_q_no[chk_proc]==proc_q_no[current_proc] && proc[chk_proc].process_id<proc[current_proc].process_id)?chk_proc:current_proc;
         }
       }
       if(proc_q_no[current_proc]==0)  //rr
