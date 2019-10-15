@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -g
+CFLAGS=-Wall -g3
 
 Scheduler: scheduler-exec.o scheduler-impl.o lab5_linkedlist.o lab5_queue.o
 		$(CC) $(CFLAGS) -o Scheduler scheduler-impl.o scheduler-exec.o lab5_linkedlist.o lab5_queue.o
