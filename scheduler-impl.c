@@ -55,6 +55,8 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         base_n = 0;
       }
 
+      printf("\nCurrent time: %d\n", current_time);
+
       //choose proc
       current_proc = 0;
       for(int chk_proc = 0; chk_proc < proc_num; chk_proc++)
