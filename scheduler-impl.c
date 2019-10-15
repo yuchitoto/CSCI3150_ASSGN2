@@ -71,7 +71,8 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       printf("\n%d\n",current_proc);
       printf("\n%d\n",proc[current_proc].execution_time);
       printf("%d\n",proc_q_no[current_proc]);
-      printf("%d\n", ProcessQueue[proc_q_no[current_proc]]->time_slice);
+      if(proc_q_no[current_proc]>=0)
+        printf("%d\n", ProcessQueue[proc_q_no[current_proc]]->time_slice);
       timebuf = current_time + (ProcessQueue[proc_q_no[current_proc]]->time_slice < (proc[current_proc].execution_time - proc_exe_time[current_proc]))?ProcessQueue[proc_q_no[current_proc]]->time_slice:(proc[current_proc].execution_time - proc_exe_time[current_proc]);
       outprint(current_time, timebuf, proc[current_proc].process_id, proc[current_proc].arrival_time, proc[current_proc].execution_time - proc_exe_time[current_proc]); //sigsev found for this line, use gdb to debug
       current_time = timebuf;
