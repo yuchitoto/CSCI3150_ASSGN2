@@ -51,7 +51,6 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         for(int k=0;k<proc_num;k++)
         {
           proc_q_no[k] = (proc_q_no[k]==-1)?-1:queue_num-1;
-          printf("\nproc_q_no: %d\n",proc_q_no[k]);
         }
         base_n = 0;
       }
@@ -62,6 +61,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       {
         if(proc[chk_proc].arrival_time <= current_time && (proc[chk_proc].execution_time - proc_exe_time[chk_proc])!=0)
         {
+          printf("proc_q: %d\n"proc_q_no[chk_proc]);
           current_proc = (proc_q_no[chk_proc]>proc_q_no[current_proc])?chk_proc:(proc_q_no[chk_proc]==proc_q_no[current_proc] && proc[chk_proc].process_id<proc[current_proc].process_id)?chk_proc:current_proc;
         }
       }
