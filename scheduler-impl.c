@@ -49,7 +49,10 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       {
         curS++;
         for(int k=0;k<proc_num;k++)
+        {
           proc_q_no[k] = (proc_q_no[k]==-1)?-1:queue_num-1;
+          printf("\nproc_q_no: %d\n",proc_q_no[k]);
+        }
         base_n = 0;
       }
 
