@@ -36,11 +36,12 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
     int proc_q_no[proc_num];
     for(int i=0;i<proc_num;i++)
       proc_q_no[i] = queue_num - 1;
-    for(int i=0;i<proc_num;i++)
-    printf("%d\n", proc_q_no[i]);
+    /*for(int i=0;i<proc_num;i++)
+      printf("%d\n", proc_q_no[i]);*/
     int timebuf;
     int base_n = 0, base_p = 0;
     ProcessQ base_pid[proc_num];
+
     while(all_proc_done != 0)
     {
       //reset
