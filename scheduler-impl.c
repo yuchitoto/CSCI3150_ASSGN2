@@ -35,6 +35,8 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
     memset(proc_exe_time, 0, proc_num*sizeof(int));
     int proc_q_no[proc_num];
     memset(proc_q_no, queue_num-1, proc_num*sizeof(int));//because the fucking max queue in the cfg file is 5
+    for(int i=0;i<proc_num;i++)
+    printf("%d\n", proc_q_no[i]);
     int timebuf;
     int base_n = 0, base_p = 0;
     ProcessQ base_pid[proc_num];
