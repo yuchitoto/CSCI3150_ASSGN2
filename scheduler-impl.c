@@ -3,19 +3,28 @@
 #include <string.h>
 #include "lab5_queue.h"
 
-typedef struct ProcessQ
-{
-  int proc_inbuf_no;
-  Process some_process;
-} ProcessQ;
-
 void outprint(int time_x, int time_y, int pid, int arrival_time, int remaining_time);
 
-int compar(const void *a, const void *b)
+LinkedQueue* sort_queue(LinkedQueue* queue) //selection sort for queue
 {
-  ProcessQ *pA = (ProcessQ*)a;
-  ProcessQ *pB = (ProcessQ*)b;
-  return (pA->some_process.process_id - pB->some_process.process_id);
+  if(queue->next==NULL)
+    return queue;
+  LinkedQueue *prev, *here, *min;
+  min = queue->next;
+  prev = queue;
+  here = queue->next;
+  while(here->next!=NULL)
+  {
+    if(min->proc.process_id > here->next->proc.process_id)
+    {
+      prev = here;
+    }
+  }
+  prev->next = min->next;
+  min->next = queue->next;
+  queue->next = min;
+  queue->next = sort_queue(queue->next);
+  return queue;
 }
 
 //this part is going to simulate how it the MLFQ is going to work, instead of actually running it
@@ -30,96 +39,81 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         printf("%d %d %d\n", i, ProcessQueue[i]->time_slice, ProcessQueue[i]->allotment_time);
     }
 
-    int all_proc_done = 1, current_time = proc[0].arrival_time, current_proc = 0, curS = 1;
-    int proc_exe_time[proc_num];
-    memset(proc_exe_time, 0, proc_num*sizeof(int));
-    int proc_q_no[proc_num];
-    for(int i=0;i<proc_num;i++)
-      proc_q_no[i] = queue_num - 1;
-    /*for(int i=0;i<proc_num;i++)
-      printf("%d\n", proc_q_no[i]);*/
-    int timebuf;
-    int base_n = 0, base_p = 0;
-    ProcessQ base_pid[proc_num];
-
+    int all_proc_done = 1, q_p[queue_num], q_max = queue_num - 1, q_n[queue_num], q_ts[queue_num], qpointer;//sch var
+    Process current_proc;
+    current_proc.process_id = 0;
+    LinkedQueue *cproc_buf = NULL;
+    memset(q_p, 1, queue_num);
+    memset(q_n, 0, queue_num);
+    for(int k=0;k<queue_num;k++)
+      q_ts[k] = ProcessQueue[k]->time_slice;
+    int current_time=0, started_time = 0;
+    int proc_in[proc_num], proc_out[proc_num];
+    memset(proc_in,0,proc_num*sizeof(int));
+    memset(proc_out,1,proc_num*sizeof(int));
+    //use service time to store execution time
     while(all_proc_done != 0)
     {
       //reset
-      if(current_time>curS*period)
+      //choose and print
+      for(int k=0;k<proc_num;k++)
       {
-        curS++;
-        for(int k=0;k<proc_num;k++)
+        //in q
+        if(proc[k].arrival_time <= current_time && proc_in==0)
         {
-          proc_q_no[k] = (proc_q_no[k]==-1)?-1:queue_num-1;
-        }
-        base_n = 0;
-      }
-
-      printf("\nCurrent time: %d\n", current_time);
-
-      //choose proc
-      current_proc = 0;
-      for(int chk_proc = 0; chk_proc < proc_num; chk_proc++)
-      {
-        if(proc[chk_proc].arrival_time <= current_time && (proc[chk_proc].execution_time - proc_exe_time[chk_proc])!=0)
-        {
-          printf("proc_q: %d\n",proc_q_no[chk_proc]);
-          current_proc = (proc_q_no[chk_proc]>proc_q_no[current_proc])?chk_proc:(proc_q_no[chk_proc]==proc_q_no[current_proc] && proc[chk_proc].process_id<proc[current_proc].process_id)?chk_proc:current_proc;
+          ProcessQueue[q_max] = AddTail(ProcessQueue[q_max], proc[k]);
+          proc_in[k] = 1;
+          q_n[q_max]++;
+          ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
+          LinkedQueue *tmp = Find(proc[k]);
+          tmp->time_slice = ProcessQueue[q_max]->time_slice;
+          tmp->allotment_time = ProcessQueue[q_max]->allotment_time;
         }
       }
-      if(proc_q_no[current_proc]==0)  //rr
-      {
-        current_proc = base_pid[base_p].proc_inbuf_no;
-        base_p++;
-        base_p = (base_p<base_n)?base_p:0;
-      }
-      printf("\n%d\n",current_proc);
-      printf("\n%d\n",proc[current_proc].execution_time);
-      printf("%d\n",proc_q_no[current_proc]);
-      if(proc_q_no[current_proc]>=0)
-        printf("%d\n", ProcessQueue[proc_q_no[current_proc]]->time_slice);
-      timebuf = current_time + (ProcessQueue[proc_q_no[current_proc]]->time_slice < (proc[current_proc].execution_time - proc_exe_time[current_proc]))?ProcessQueue[proc_q_no[current_proc]]->time_slice:(proc[current_proc].execution_time - proc_exe_time[current_proc]);
-      outprint(current_time, timebuf, proc[current_proc].process_id, proc[current_proc].arrival_time, proc[current_proc].execution_time - proc_exe_time[current_proc]); //sigsev found for this line, use gdb to debug
-      current_time = timebuf;
-      proc_exe_time[current_proc] += (ProcessQueue[proc_q_no[current_proc]]->time_slice < (proc[current_proc].execution_time - proc_exe_time[current_proc]))?ProcessQueue[proc_q_no[current_proc]]->time_slice:(proc[current_proc].execution_time - proc_exe_time[current_proc]);
 
-      if(proc_exe_time[current_proc] == proc[current_proc].execution_time)  //check if the proc end
+      /*
+      current process update
+      */
+
+      if(started_time==cproc_buf->time_slice)//?
       {
-        if(proc_q_no[current_proc]==0)
+        for(qpointer=q_max;qpointer>=0;qpointer++)//look for top queue
         {
-          int b=0;
-          for(int k=0;k<base_n;k++)
+          if(ProcessQueue[qpointer]->next!=NULL)
+          break;
+        }
+        if(cproc_buf->time_slice == ProcessQueue[qpointer]->time_slice)//unmoved process
+        {
+          cproc_buf->proc = current_proc;
+          //rr
+          if(cproc_buf->next != NULL)
           {
-            if(base_pid[k].some_process.process_id == proc[current_proc].process_id)
-              b=1;
-            if(b==1 && k+1<base_n)
+            if(cproc_buf->allotment_time == 0)
             {
-              base_pid[k] = base_pid[k+1];
+              //move down
+              LinkedList *tmp_buf = cproc_buf;
             }
+            else
+            {
+              cproc_buf = cproc_buf->next;
+            }
+            current_proc = cproc_buf->proc;
+            current_proc.service_time++;
+            cproc_buf->proc = current_proc;
           }
-          base_n--;
         }
-        proc_q_no[current_proc] = -1;
       }
-      else
-        proc_q_no[current_proc] -= (proc_q_no[current_proc]>0)?1:0;
-
-      if(proc_q_no[current_proc] == 0)//sort proc in base queue according to pid
-      {
-        base_pid[base_n].proc_inbuf_no = current_proc;
-        base_pid[base_n].some_process = proc[current_proc];
-        base_n++;
-        if(base_p>1)
-          qsort(base_pid, base_n, sizeof(ProcessQ), compar);
-      }
+      //outprint();
       /*
       if all proc done -> all_proc_done = 0
       */
+      //out
       all_proc_done = 0;
       for(int k = 0; k<proc_num; k++)
       {
-        all_proc_done += proc[k].execution_time - proc_exe_time[k];
+        all_proc_done += proc_out[k];
       }
+      current_time++;
     }
 
 }
