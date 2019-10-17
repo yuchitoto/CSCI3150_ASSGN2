@@ -40,7 +40,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         printf("%d %d %d\n", i, ProcessQueue[i]->time_slice, ProcessQueue[i]->allotment_time);
     }
 
-    int all_proc_done = 1, q_max = queue_num - 1, qpointer;//sch var
+    int all_proc_done = 1, q_max = queue_num - 1, qpointer = -1;//sch var
     Process current_proc;
     current_proc.process_id = 0;
     LinkedQueue *cproc_buf = NULL, *tmp_holder = NULL;
@@ -110,51 +110,57 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       }
 
       current_time++;
-      //update job content
-      current_proc.execution_time--;
-      executed_time++;
-      cproc_buf->allotment_time--;
-      //outprint when period, executed time = slice, execution time=0
-      if(current_time % period == 0 && current_time != 0)
-      {
-        outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.execution_time);
-        cproc_buf->proc = current_proc;
-        for(int k=0;k<proc_num;k++)
-          if(proc[k].process_id == current_proc.process_id)
-            proc[k] = current_proc;
-      }
-      if(executed_time == cproc_buf->time_slice || cproc_buf->allotment_time == 0 || current_proc.execution_time == 0)
-      {
-        outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.execution_time);
-        cproc_buf->proc = current_proc;
-        for(int k=0;k<proc_num;k++)
-          if(proc[k].process_id == current_proc.process_id)
-            proc[k] = current_proc;
-        executed_time = 0;
-      }
 
-      //mv job down
-      if(cproc_buf->allotment_time == 0 && qpointer > 0)
+      if(cproc_buf != NULL)
       {
-        tmp_holder = cproc_buf->next;
-        LinkedQueue *entry = ProcessQueue[qpointer]->next;
-        while(entry->next != cproc_buf)
+        //update job content
+        current_proc.execution_time--;
+        executed_time++;
+        cproc_buf->allotment_time--;
+
+        //outprint when period, executed time = slice, execution time=0
+        if(current_time % period == 0 && current_time != 0)
         {
-          entry = entry->next;
+          outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.execution_time);
+          cproc_buf->proc = current_proc;
+          for(int k=0;k<proc_num;k++)
+            if(proc[k].process_id == current_proc.process_id)
+              proc[k] = current_proc;
         }
-        entry->next = cproc_buf->next;
-        cproc_buf->next = NULL;
-        ProcessQueue[qpointer - 1] = AddTail(ProcessQueue[qpointer - 1], current_proc);
-        entry = Find(ProcessQueue[qpointer - 1], current_proc);
-        entry->allotment_time = ProcessQueue[qpointer-1]->allotment_time;
-        entry->time_slice = ProcessQueue[qpointer - 1]->time_slice;
-        ProcessQueue[qpointer - 1] = sort_queue(ProcessQueue[qpointer - 1]);
-        free(cproc_buf);
-      }
-      else if(cproc_buf->allotment_time == 0 && qpointer == 0)
-      {
-        cproc_buf->allotment_time = ProcessQueue[0]->allotment_time;
-        tmp_holder = cproc_buf->next;
+        if(executed_time == cproc_buf->time_slice || cproc_buf->allotment_time == 0 || current_proc.execution_time == 0)
+        {
+          outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.execution_time);
+          cproc_buf->proc = current_proc;
+          for(int k=0;k<proc_num;k++)
+            if(proc[k].process_id == current_proc.process_id)
+              proc[k] = current_proc;
+          executed_time = 0;
+        }
+
+        //mv job down
+        if(cproc_buf->allotment_time == 0 && qpointer > 0)
+        {
+          tmp_holder = cproc_buf->next;
+          LinkedQueue *entry = ProcessQueue[qpointer]->next;
+          while(entry->next != cproc_buf)
+          {
+            entry = entry->next;
+          }
+          entry->next = cproc_buf->next;
+          cproc_buf->next = NULL;
+          ProcessQueue[qpointer - 1] = AddTail(ProcessQueue[qpointer - 1], current_proc);
+          entry = Find(ProcessQueue[qpointer - 1], current_proc);
+          entry->allotment_time = ProcessQueue[qpointer-1]->allotment_time;
+          entry->time_slice = ProcessQueue[qpointer - 1]->time_slice;
+          ProcessQueue[qpointer - 1] = sort_queue(ProcessQueue[qpointer - 1]);
+          free(cproc_buf);
+          cproc_buf = NULL;
+        }
+        else if(cproc_buf->allotment_time == 0 && qpointer == 0)
+        {
+          cproc_buf->allotment_time = ProcessQueue[0]->allotment_time;
+          tmp_holder = cproc_buf->next;
+        }
       }
 
       /*
