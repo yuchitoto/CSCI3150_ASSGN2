@@ -43,8 +43,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
     int all_proc_done = 1, q_max = queue_num - 1, qpointer;//sch var
     Process current_proc;
     current_proc.process_id = 0;
-    LinkedQueue *cproc_buf = NULL, tmp_holder = NULL;
-    memset(q_n, 0, queue_num);
+    LinkedQueue *cproc_buf = NULL, *tmp_holder = NULL;
     int current_time=0, started_time = 0, executed_time = 0;
     int proc_in[proc_num];
     memset(proc_in,0,proc_num * sizeof(int));
