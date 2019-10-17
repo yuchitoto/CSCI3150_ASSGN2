@@ -56,10 +56,10 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       //reset
       if(current_time % period==0)
       {
-        LinkedQueue *entry = ProcessQueue[q_max]->next;
+        LinkedQueue *entry = ProcessQueue[q_max];
         for(int k = 0; k<q_max; k++)
         {
-          while(entry != NULL && entry->next != NULL)
+          while(entry->next != NULL)
             entry = entry->next;
 
           entry->next = ProcessQueue[k]->next;
