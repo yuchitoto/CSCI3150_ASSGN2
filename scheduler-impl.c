@@ -72,7 +72,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       for(int k=0;k<proc_num;k++)
       {
         //in q
-        if(proc[k].arrival_time <= current_time && proc_in==0)
+        if(proc[k].arrival_time <= current_time && proc_in[k]==0)
         {
           ProcessQueue[q_max] = AddTail(ProcessQueue[q_max], proc[k]);
           proc_in[k] = 1;
