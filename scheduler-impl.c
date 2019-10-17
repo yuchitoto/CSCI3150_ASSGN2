@@ -92,21 +92,21 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
            new_proc_l = (ProcessQueue[k]->next!=NULL)?k:new_proc_l;
          }
 
-         if(new_proc_l == -1)
-          break;
-
-         if(new_proc_l == qpointer)//rr
+         if(new_proc_l != -1)
          {
-            cproc_buf = tmp_holder;
-            current_proc = cproc_buf->proc;
+           if(new_proc_l == qpointer)//rr
+           {
+             cproc_buf = tmp_holder;
+             current_proc = cproc_buf->proc;
+           }
+           else
+           {
+             qpointer = new_proc_l;
+             cproc_buf = ProcessQueue[qpointer]->next;
+             current_proc = cproc_buf->proc;
+           }
+           started_time = current_time;
          }
-         else
-         {
-            qpointer = new_proc_l;
-            cproc_buf = ProcessQueue[qpointer]->next;
-            current_proc = cproc_buf->proc;
-         }
-         started_time = current_time;
       }
 
       current_time++;
