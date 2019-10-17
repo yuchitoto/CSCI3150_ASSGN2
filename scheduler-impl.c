@@ -39,23 +39,23 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         printf("%d %d %d\n", i, ProcessQueue[i]->time_slice, ProcessQueue[i]->allotment_time);
     }
 
-    int all_proc_done = 1, q_p[queue_num], q_max = queue_num - 1, q_n[queue_num], q_ts[queue_num], qpointer;//sch var
+    int all_proc_done = 1, q_max = queue_num - 1, q_n[queue_num], qpointer;//sch var
     Process current_proc;
     current_proc.process_id = 0;
-    LinkedQueue *cproc_buf = NULL;
-    memset(q_p, 1, queue_num);
+    LinkedQueue *cproc_buf = NULL, tmp_holder = NULL;
     memset(q_n, 0, queue_num);
-    for(int k=0;k<queue_num;k++)
-      q_ts[k] = ProcessQueue[k]->time_slice;
-    int current_time=0, started_time = 0;
-    int proc_in[proc_num], proc_out[proc_num];
+    int current_time=0, started_time = 0, executed_time = 0, execution_time = 0;
+    int proc_in[proc_num];
     memset(proc_in,0,proc_num*sizeof(int));
-    memset(proc_out,1,proc_num*sizeof(int));
     //use service time to store execution time
     while(all_proc_done != 0)
     {
       //reset
-      //choose and print
+      if(current_time%period==0)
+      {
+      }
+
+      //insert job
       for(int k=0;k<proc_num;k++)
       {
         //in q
@@ -71,49 +71,41 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         }
       }
 
-      /*
-      current process update
-      */
-
-      if(started_time==cproc_buf->time_slice)//?
+      //choose job
+      if(executed_time==0 || current_time%period==0)
       {
-        for(qpointer=q_max;qpointer>=0;qpointer++)//look for top queue
-        {
-          if(ProcessQueue[qpointer]->next!=NULL)
-          break;
-        }
-        if(cproc_buf->time_slice == ProcessQueue[qpointer]->time_slice)//unmoved process
-        {
-          cproc_buf->proc = current_proc;
-          //rr
-          if(cproc_buf->next != NULL)
-          {
-            if(cproc_buf->allotment_time == 0)
-            {
-              //move down
-              LinkedList *tmp_buf = cproc_buf;
-            }
-            else
-            {
-              cproc_buf = cproc_buf->next;
-            }
+         int new_proc_l = q_max;
+         while(ProcessQueue[new_proc_l]->next!=NULL && new_proc_l>=0)
+            new_proc_l--;
+         if(new_proc_l == qpointer)//rr
+         {
+            cproc_buf = tmp_holder;
             current_proc = cproc_buf->proc;
-            current_proc.service_time++;
-            cproc_buf->proc = current_proc;
-          }
-        }
+         }
+         else
+         {
+            qpointer = new_proc_l;
+            cproc_buf = ProcessQueue[qpointer]->next;
+            current_proc = cproc_buf->proc;
+         }
+         started_time = current_time;
+         execution_time = current_proc.execution_time;
       }
-      //outprint();
+
+      current_time++;
+      //update job content
+      //outprint when period, executed time = slice, execution time=0
+      //sync proc
+      //mv job down
+
       /*
       if all proc done -> all_proc_done = 0
       */
-      //out
       all_proc_done = 0;
       for(int k = 0; k<proc_num; k++)
       {
-        all_proc_done += proc_out[k];
+        all_proc_done += proc[k].execution_time;
       }
-      current_time++;
     }
 
 }
