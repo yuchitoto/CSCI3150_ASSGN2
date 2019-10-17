@@ -9,6 +9,7 @@ LinkedQueue* sort_queue(LinkedQueue* queue) //selection sort for queue
 {
   if(queue->next==NULL)
     return queue;
+
   LinkedQueue *prev, *here, *min;
   min = queue->next;
   prev = queue;
@@ -27,7 +28,7 @@ LinkedQueue* sort_queue(LinkedQueue* queue) //selection sort for queue
   return queue;
 }
 
-//this part is going to simulate how it the MLFQ is going to work, instead of actually running it
+//this part is going to simulate how it the MLGB is going to work, instead of actually running it
 void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queue_num, int period){
     printf("Process number: %d\n", proc_num);
     for (int i = 0;i < proc_num; i++)
@@ -39,20 +40,29 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         printf("%d %d %d\n", i, ProcessQueue[i]->time_slice, ProcessQueue[i]->allotment_time);
     }
 
-    int all_proc_done = 1, q_max = queue_num - 1, q_n[queue_num], qpointer;//sch var
+    int all_proc_done = 1, q_max = queue_num - 1, qpointer;//sch var
     Process current_proc;
     current_proc.process_id = 0;
     LinkedQueue *cproc_buf = NULL, tmp_holder = NULL;
     memset(q_n, 0, queue_num);
-    int current_time=0, started_time = 0, executed_time = 0, execution_time = 0;
+    int current_time=0, started_time = 0, executed_time = 0;
     int proc_in[proc_num];
-    memset(proc_in,0,proc_num*sizeof(int));
-    //use service time to store execution time
+    memset(proc_in,0,proc_num * sizeof(int));
     while(all_proc_done != 0)
     {
       //reset
-      if(current_time%period==0)
+      if(current_time % period==0)
       {
+        LinkedQueue *entry = ProcessQueue[q_max]->next;
+        for(int k = 0; k<q_max; k++)
+        {
+          while(entry->next != NULL)
+            entry = entry->next;
+
+          entry->next = ProcessQueue[k]->next;
+          ProcessQueue[k]->next = NULL;
+        }
+        ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
       }
 
       //insert job
@@ -63,7 +73,6 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         {
           ProcessQueue[q_max] = AddTail(ProcessQueue[q_max], proc[k]);
           proc_in[k] = 1;
-          q_n[q_max]++;
           ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
           LinkedQueue *tmp = Find(proc[k]);
           tmp->time_slice = ProcessQueue[q_max]->time_slice;
@@ -89,14 +98,55 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
             current_proc = cproc_buf->proc;
          }
          started_time = current_time;
-         execution_time = current_proc.execution_time;
       }
 
       current_time++;
       //update job content
+      current_proc.execution_time--;
+      executed_time++;
+      cproc_buf->allotment_time--;
       //outprint when period, executed time = slice, execution time=0
-      //sync proc
+      if(current_time % period == 0 && current_time != 0)
+      {
+        outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.execution_time);
+        cproc_buf->proc = current_proc;
+        for(int k=0;k<proc_num;k++)
+          if(proc[k].process_id == current_proc.process_id)
+            proc[k] = current_proc;
+      }
+      if(executed_time == cproc_buf->time_slice || cproc_buf->allotment_time == 0 || current_proc.executed_time == 0)
+      {
+        outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.executed_time);
+        cproc_buf->proc = current_proc;
+        for(int k=0;k<proc_num;k++)
+          if(proc[k].process_id == current_proc.process_id)
+            proc[k] = current_proc;
+        executed_time = 0;
+      }
+
       //mv job down
+      if(cproc_buf->allotment_time == 0 && qpointer > 0)
+      {
+        tmp_holder = cproc_buf->next;
+        LinkedQueue *entry = ProcessQueue[qpointer]->next;
+        while(entry->next != cproc_buf)
+        {
+          entry = entry->next;
+        }
+        entry->next = cproc_buf->next;
+        cproc_buf->next = NULL;
+        ProcessQueue[qpointer - 1] = AddTail(ProcessQueue[qpointer - 1], current_proc);
+        entry = Find(ProcessQueue[qpointer - 1], current_proc);
+        entry->allotment_time = ProcessQueue[qpointer-1]->allotment_time;
+        entry->time_slice = ProcessQueue[qpointer - 1]->time_slice;
+        ProcessQueue[qpointer - 1] = sort_queue(ProcessQueue[qpointer - 1]);
+        free(cproc_buf);
+      }
+      else if(cproc_buf->allotment_time == 0 && qpointer == 0)
+      {
+        cproc_buf->allotment_time = ProcessQueue[0]->allotment_time;
+        tmp_holder = cproc_buf->next;
+      }
 
       /*
       if all proc done -> all_proc_done = 0
