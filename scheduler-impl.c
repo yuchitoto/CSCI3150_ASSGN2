@@ -86,9 +86,12 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       //choose job
       if(executed_time==0 || current_time%period==0)
       {
-         int new_proc_l = q_max;
-         while(ProcessQueue[new_proc_l]->next!=NULL && new_proc_l>=0)
-            new_proc_l--;
+         int new_proc_l = 0;
+         for(int k; k<queue_num; k++)
+         {
+           new_proc_l = (ProcessQueue[k]->next!=NULL)?k:new_proc_l;
+         }
+         
          if(new_proc_l == qpointer)//rr
          {
             cproc_buf = tmp_holder;
