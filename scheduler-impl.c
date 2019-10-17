@@ -59,7 +59,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         LinkedQueue *entry = ProcessQueue[q_max]->next;
         for(int k = 0; k<q_max; k++)
         {
-          while(entry->next != NULL)
+          while(entry != NULL || entry->next != NULL)
             entry = entry->next;
 
           entry->next = ProcessQueue[k]->next;
