@@ -77,7 +77,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           ProcessQueue[q_max] = AddTail(ProcessQueue[q_max], proc[k]);
           proc_in[k] = 1;
           ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
-          LinkedQueue *tmp = Find(proc[k]);
+          LinkedQueue *tmp = Find(ProcessQueue[q_max], proc[k]);
           tmp->time_slice = ProcessQueue[q_max]->time_slice;
           tmp->allotment_time = ProcessQueue[q_max]->allotment_time;
         }
@@ -117,9 +117,9 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           if(proc[k].process_id == current_proc.process_id)
             proc[k] = current_proc;
       }
-      if(executed_time == cproc_buf->time_slice || cproc_buf->allotment_time == 0 || current_proc.executed_time == 0)
+      if(executed_time == cproc_buf->time_slice || cproc_buf->allotment_time == 0 || current_proc.execution_time == 0)
       {
-        outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.executed_time);
+        outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.execution_time);
         cproc_buf->proc = current_proc;
         for(int k=0;k<proc_num;k++)
           if(proc[k].process_id == current_proc.process_id)
