@@ -74,7 +74,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         //in q
         if(proc[k].arrival_time <= current_time && proc_in[k]==0)
         {
-          ProcessQueue[q_max] = AddTail(ProcessQueue[q_max], proc[k]);
+          ProcessQueue[q_max] = EnQueue(ProcessQueue[q_max], proc[k]);
           proc_in[k] = 1;
           ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
           LinkedQueue *tmp = Find(ProcessQueue[q_max], proc[k]);
