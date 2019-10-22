@@ -54,6 +54,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
     while(all_proc_done != 0)
     {
       //reset
+      printf("Current time: %d\nCurrent process: %d\n", current_time, current_proc.process_id);
       if(current_time % period==0)
       {
         LinkedQueue *entry = ProcessQueue[q_max];
