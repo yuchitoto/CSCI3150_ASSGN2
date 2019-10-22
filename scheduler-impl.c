@@ -91,7 +91,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
          int new_proc_l = -1;
          for(int k; k<queue_num; k++)
          {
-           new_proc_l = (ProcessQueue[k]->next!=NULL)?k:new_proc_l;
+           new_proc_l = (ProcessQueue[k]->next==NULL)?new_proc_l:k;
          }
          printf("new qpointer: %d\n", new_proc_l);
          if(new_proc_l != -1)
