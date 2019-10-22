@@ -93,7 +93,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       if(executed_time==0 || current_time%period==0)
       {
          int new_proc_l = -1;
-         for(int k; k<queue_num; k++)
+         for(int k=0; k<queue_num; k++)
          {
            new_proc_l = (ProcessQueue[k]->next==NULL)?new_proc_l:k;
          }
