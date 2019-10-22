@@ -19,6 +19,7 @@ LinkedQueue* sort_queue(LinkedQueue* queue) //selection sort for queue
     if(min->proc.process_id > here->next->proc.process_id)
     {
       prev = here;
+      min = here->next;
     }
     here = here->next;
   }
@@ -62,7 +63,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
       {
         all_proc_done += proc[k].execution_time;
       }
-      
+
       //reset
       printf("Current time: %d\nCurrent process: %d\n", current_time, current_proc.process_id);
       if(current_time % period==0)
