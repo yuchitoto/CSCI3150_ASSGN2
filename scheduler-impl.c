@@ -102,8 +102,8 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
          {
            if(new_proc_l == qpointer)//rr
            {
-             cproc_buf = tmp_holder;
-             current_proc = (cproc_buf == NULL)ProcessQueue[qpointer]->next?:cproc_buf->proc;
+             cproc_buf = (tmp_holder==NULL)?ProcessQueue[qpointer]->next:tmp_holder;
+             current_proc = cproc_buf->proc;
            }
            else
            {
