@@ -20,6 +20,7 @@ LinkedQueue* sort_queue(LinkedQueue* queue) //selection sort for queue
     {
       prev = here;
     }
+    here = here->next;
   }
   prev->next = min->next;
   min->next = queue->next;
