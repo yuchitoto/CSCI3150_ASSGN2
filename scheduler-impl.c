@@ -157,6 +157,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           tmp_holder = cproc_buf->next;
           free(cproc_buf);
           cproc_buf = NULL;
+	  continue;
         }
 
         //mv job down
