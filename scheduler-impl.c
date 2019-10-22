@@ -76,10 +76,13 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         //in q
         if(proc[k].arrival_time <= current_time && proc_in[k]==0)
         {
-          ProcessQueue[q_max] = EnQueue(ProcessQueue[q_max], proc[k]);
+          LinkedQueue *tmp = (LinkedQueue*)malloc(sizeof(LinkedQueue));
+          LinkedQueue *ptr = ProcessQueue[q_max];
+          while(ptr->next!=NULL)
+            ptr = ptr->next;
+          ptr->next = tmp;
           proc_in[k] = 1;
           ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
-          LinkedQueue *tmp = Find(ProcessQueue[q_max], proc[k]);
           tmp->time_slice = ProcessQueue[q_max]->time_slice;
           tmp->allotment_time = ProcessQueue[q_max]->allotment_time;
         }
