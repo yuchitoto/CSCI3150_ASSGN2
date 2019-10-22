@@ -54,6 +54,15 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
 
     while(all_proc_done != 0)
     {
+      /*
+      if all proc done -> all_proc_done = 0
+      */
+      all_proc_done = 0;
+      for(int k = 0; k<proc_num; k++)
+      {
+        all_proc_done += proc[k].execution_time;
+      }
+      
       //reset
       printf("Current time: %d\nCurrent process: %d\n", current_time, current_proc.process_id);
       if(current_time % period==0)
@@ -143,23 +152,31 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           executed_time = 0;
         }
 
+        if(current_proc.execution_time==0)
+        {
+          tmp_holder = cproc_buf->next;
+          free(cproc_buf);
+          cproc_buf = NULL;
+        }
+
         //mv job down
         if(cproc_buf->allotment_time == 0 && qpointer > 0)
         {
           tmp_holder = cproc_buf->next;
-          LinkedQueue *entry = ProcessQueue[qpointer]->next;
+          LinkedQueue *entry = ProcessQueue[qpointer];
           while(entry->next != cproc_buf)
           {
             entry = entry->next;
           }
           entry->next = cproc_buf->next;
           cproc_buf->next = NULL;
-          ProcessQueue[qpointer - 1] = AddTail(ProcessQueue[qpointer - 1], current_proc);
-          entry = Find(ProcessQueue[qpointer - 1], current_proc);
-          entry->allotment_time = ProcessQueue[qpointer-1]->allotment_time;
-          entry->time_slice = ProcessQueue[qpointer - 1]->time_slice;
+          LinkedQueue *tmp = ProcessQueue[qpointer - 1];
+          while(tmp->next != NULL)
+            tmp = tmp->next;
+          tmp->next = cproc_buf;
+          cproc_buf->time_slice = ProcessQueue[qpointer - 1]->time_slice;
+          cproc_buf->allotment_time = ProcessQueue[qpointer - 1]->allotment_time;
           ProcessQueue[qpointer - 1] = sort_queue(ProcessQueue[qpointer - 1]);
-          free(cproc_buf);
           cproc_buf = NULL;
         }
         else if(cproc_buf->allotment_time == 0 && qpointer == 0)
@@ -167,15 +184,6 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           cproc_buf->allotment_time = ProcessQueue[0]->allotment_time;
           tmp_holder = cproc_buf->next;
         }
-      }
-
-      /*
-      if all proc done -> all_proc_done = 0
-      */
-      all_proc_done = 0;
-      for(int k = 0; k<proc_num; k++)
-      {
-        all_proc_done += proc[k].execution_time;
       }
     }
 
