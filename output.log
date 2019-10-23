@@ -35,7 +35,6 @@ Time_slot:770-820, pid:1023, arrival-time:10, remaining_time:1168
 Time_slot:820-880, pid:1023, arrival-time:10, remaining_time:1108
 Time_slot:880-940, pid:1023, arrival-time:10, remaining_time:1048
 Time_slot:940-1000, pid:1023, arrival-time:10, remaining_time:988
-Time_slot:940-1000, pid:1023, arrival-time:10, remaining_time:988
 Time_slot:1000-1010, pid:1023, arrival-time:10, remaining_time:978
 Time_slot:1010-1020, pid:1023, arrival-time:10, remaining_time:968
 Time_slot:1020-1040, pid:1023, arrival-time:10, remaining_time:948
