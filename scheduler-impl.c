@@ -158,9 +158,15 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
         if(current_proc.execution_time==0)
         {
           tmp_holder = cproc_buf->next;
+          LinkedQueue *entry = ProcessQueue[qpointer];
+          while(entry->next != cproc_buf)
+          {
+            entry = entry->next;
+          }
+          entry->next = cproc_buf->next;
           free(cproc_buf);
           cproc_buf = NULL;
-	  continue;
+          continue;
         }
 
         //mv job down
