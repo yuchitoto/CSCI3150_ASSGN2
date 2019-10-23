@@ -93,9 +93,10 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           ptr->next = tmp;
           tmp->proc = proc[k];
           proc_in[k] = 1;
-          ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
           tmp->time_slice = ProcessQueue[q_max]->time_slice;
           tmp->allotment_time = ProcessQueue[q_max]->allotment_time;
+          tmp->next = NULL;
+          ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
         }
       }
 
