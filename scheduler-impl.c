@@ -152,7 +152,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           for(int k=0;k<proc_num;k++)
             if(proc[k].process_id == current_proc.process_id)
               proc[k] = current_proc;
-          executed_time = 0;
+          //executed_time = 0;
         }
 
         if(current_proc.execution_time==0)
@@ -166,6 +166,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           entry->next = cproc_buf->next;
           free(cproc_buf);
           cproc_buf = NULL;
+          executed_time = 0;
           continue;
         }
 
@@ -188,11 +189,22 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           cproc_buf->allotment_time = ProcessQueue[qpointer - 1]->allotment_time;
           ProcessQueue[qpointer - 1] = sort_queue(ProcessQueue[qpointer - 1]);
           cproc_buf = NULL;
+          executed_time = 0;
+          continue;
         }
         else if(cproc_buf->allotment_time == 0 && qpointer == 0)
         {
           cproc_buf->allotment_time = ProcessQueue[0]->allotment_time;
           tmp_holder = cproc_buf->next;
+          executed_time = 0;
+          continue;
+        }
+
+        //timeslice = 0
+        if(executed_time == cproc_buf->time_slice)
+        {
+          tmp_holder = cproc_buf->next;
+          executed_time = 0;
         }
       }
     }
