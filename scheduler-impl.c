@@ -48,7 +48,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
     LinkedQueue *cproc_buf = NULL, *tmp_holder = NULL;
     int current_time=0, started_time = 0, executed_time = 0;
     int proc_in[proc_num];
-    memset(proc_in,0,proc_num * sizeof(int));
+    memset(proc_in, 0, proc_num * sizeof(int));
 
     for(int k=0; k<queue_num; k++)
       ProcessQueue[k]->next = NULL;
@@ -85,6 +85,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           tmp->time_slice = ProcessQueue[q_max]->time_slice;
           tmp->allotment_time = ProcessQueue[q_max]->allotment_time;
         }
+        executed_time = 0;
       }
 
       //insert job
