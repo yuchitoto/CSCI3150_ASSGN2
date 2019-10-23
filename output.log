@@ -20,8 +20,9 @@ Time_slot:348-388, pid:13, arrival-time:80, remaining_time:60
 Time_slot:388-428, pid:1023, arrival-time:10, remaining_time:1500
 Time_slot:428-468, pid:13, arrival-time:80, remaining_time:20
 Time_slot:468-500, pid:1023, arrival-time:10, remaining_time:1468
-Time_slot:500-520, pid:13, arrival-time:80, remaining_time:0
-Time_slot:520-530, pid:1023, arrival-time:10, remaining_time:1458
+Time_slot:500-510, pid:13, arrival-time:80, remaining_time:10
+Time_slot:510-520, pid:1023, arrival-time:10, remaining_time:1458
+Time_slot:520-530, pid:13, arrival-time:80, remaining_time:0
 Time_slot:530-540, pid:1023, arrival-time:10, remaining_time:1448
 Time_slot:540-560, pid:1023, arrival-time:10, remaining_time:1428
 Time_slot:560-580, pid:1023, arrival-time:10, remaining_time:1408
@@ -49,7 +50,8 @@ Time_slot:1300-1360, pid:1023, arrival-time:10, remaining_time:628
 Time_slot:1360-1420, pid:1023, arrival-time:10, remaining_time:568
 Time_slot:1420-1480, pid:1023, arrival-time:10, remaining_time:508
 Time_slot:1480-1500, pid:1023, arrival-time:10, remaining_time:488
-Time_slot:1500-1520, pid:1023, arrival-time:10, remaining_time:468
+Time_slot:1500-1510, pid:1023, arrival-time:10, remaining_time:478
+Time_slot:1510-1520, pid:1023, arrival-time:10, remaining_time:468
 Time_slot:1520-1540, pid:1023, arrival-time:10, remaining_time:448
 Time_slot:1540-1560, pid:1023, arrival-time:10, remaining_time:428
 Time_slot:1560-1590, pid:1023, arrival-time:10, remaining_time:398
