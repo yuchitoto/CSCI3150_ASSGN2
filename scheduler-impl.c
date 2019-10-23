@@ -78,6 +78,13 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
           ProcessQueue[k]->next = NULL;
         }
         ProcessQueue[q_max] = sort_queue(ProcessQueue[q_max]);
+        LinkedQueue *tmp = ProcessQueue[q_max];
+        while(tmp->next !=NULL)
+        {
+          tmp = tmp->next;
+          tmp->time_slice = ProcessQueue[q_max]->time_slice;
+          tmp->allotment_time = ProcessQueue[q_max]->allotment_time;
+        }
       }
 
       //insert job
