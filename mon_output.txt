@@ -43,27 +43,27 @@ current process: 13
 current time: 118 | old qpointer: 5 | new qpointer: 4
 current process: 13
 current time: 138 | old qpointer: 4 | new qpointer: 4
-current process: 13
-current time: 158 | old qpointer: 4 | new qpointer: 4
 current process: 123
-current time: 178 | old qpointer: 4 | new qpointer: 4
+current time: 158 | old qpointer: 4 | new qpointer: 4
 current process: 1023
+current time: 178 | old qpointer: 4 | new qpointer: 4
+current process: 13
 current time: 198 | old qpointer: 4 | new qpointer: 3
 current process: 13
 current time: 228 | old qpointer: 3 | new qpointer: 3
-current process: 13
-current time: 258 | old qpointer: 3 | new qpointer: 3
 current process: 123
-current time: 288 | old qpointer: 3 | new qpointer: 3
+current time: 258 | old qpointer: 3 | new qpointer: 3
 current process: 1023
+current time: 288 | old qpointer: 3 | new qpointer: 3
+current process: 13
 current time: 318 | old qpointer: 3 | new qpointer: 3
 current process: 1023
 current time: 348 | old qpointer: 3 | new qpointer: 2
 current process: 13
 current time: 388 | old qpointer: 2 | new qpointer: 2
-current process: 13
-current time: 428 | old qpointer: 2 | new qpointer: 2
 current process: 1023
+current time: 428 | old qpointer: 2 | new qpointer: 2
+current process: 13
 current time: 468 | old qpointer: 2 | new qpointer: 2
 current process: 1023
 current time: 500 | old qpointer: 2 | new qpointer: 5
