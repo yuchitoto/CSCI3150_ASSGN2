@@ -153,7 +153,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
             if(proc[k].process_id == current_proc.process_id)
               proc[k] = current_proc;
         }
-        if(executed_time == cproc_buf->time_slice || cproc_buf->allotment_time == 0 || current_proc.execution_time == 0)
+        else if(executed_time == cproc_buf->time_slice || cproc_buf->allotment_time == 0 || current_proc.execution_time == 0)
         {
           outprint(started_time, current_time, current_proc.process_id, current_proc.arrival_time, current_proc.execution_time);
           cproc_buf->proc = current_proc;
