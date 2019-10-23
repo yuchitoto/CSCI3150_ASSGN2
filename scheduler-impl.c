@@ -116,7 +116,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
          {
            new_proc_l = (ProcessQueue[k]->next==NULL)?new_proc_l:k;
          }
-         printf("current time: %d | old qpointer: %d | new qpointer: %d\n", current_time, qpointer, new_proc_l);
+         //printf("current time: %d | old qpointer: %d | new qpointer: %d\n", current_time, qpointer, new_proc_l);
          if(new_proc_l != -1)
          {
            if(new_proc_l == qpointer)//rr
@@ -131,7 +131,7 @@ void scheduler(Process* proc, LinkedQueue** ProcessQueue, int proc_num, int queu
              current_proc = cproc_buf->proc;
            }
            started_time = current_time;
-           printf("current process: %d\n", current_proc.process_id);
+           //printf("current process: %d\n", current_proc.process_id);
          }
       }
 
