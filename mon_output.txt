@@ -40,533 +40,110 @@ current time: 98 | old qpointer: 5 | new qpointer: 5
 current process: 13
 current time: 108 | old qpointer: 5 | new qpointer: 5
 current process: 13
-current time: 118 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 128 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 130 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 150 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 170 | old qpointer: 4 | new qpointer: 4
+current time: 118 | old qpointer: 5 | new qpointer: 4
 current process: 13
-current time: 190 | old qpointer: 4 | new qpointer: 4
+current time: 138 | old qpointer: 4 | new qpointer: 4
 current process: 13
-current time: 210 | old qpointer: 4 | new qpointer: 4
+current time: 158 | old qpointer: 4 | new qpointer: 4
 current process: 123
-current time: 230 | old qpointer: 4 | new qpointer: 4
+current time: 178 | old qpointer: 4 | new qpointer: 4
 current process: 1023
-current time: 250 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 280 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 310 | old qpointer: 3 | new qpointer: 3
+current time: 198 | old qpointer: 4 | new qpointer: 3
 current process: 13
-current time: 340 | old qpointer: 3 | new qpointer: 3
+current time: 228 | old qpointer: 3 | new qpointer: 3
 current process: 13
-current time: 370 | old qpointer: 3 | new qpointer: 3
+current time: 258 | old qpointer: 3 | new qpointer: 3
 current process: 123
-current time: 400 | old qpointer: 3 | new qpointer: 3
+current time: 288 | old qpointer: 3 | new qpointer: 3
 current process: 1023
-current time: 430 | old qpointer: 3 | new qpointer: 3
+current time: 318 | old qpointer: 3 | new qpointer: 3
 current process: 1023
-current time: 460 | old qpointer: 3 | new qpointer: 3
-current process: 1781200720
-current time: 490 | old qpointer: 3 | new qpointer: 2
-current process: 0
+current time: 348 | old qpointer: 3 | new qpointer: 2
+current process: 13
+current time: 388 | old qpointer: 2 | new qpointer: 2
+current process: 13
+current time: 428 | old qpointer: 2 | new qpointer: 2
+current process: 1023
+current time: 468 | old qpointer: 2 | new qpointer: 2
+current process: 1023
 current time: 500 | old qpointer: 2 | new qpointer: 5
-current process: 0
-current time: 530 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 570 | old qpointer: 5 | new qpointer: 5
 current process: 13
-current time: 610 | old qpointer: 5 | new qpointer: 5
+current time: 518 | old qpointer: 5 | new qpointer: 5
+current process: 1023
+current time: 526 | old qpointer: 5 | new qpointer: 5
 current process: 13
-current time: 650 | old qpointer: 5 | new qpointer: 5
+current time: 528 | old qpointer: 5 | new qpointer: 4
 current process: 1023
-current time: 690 | old qpointer: 5 | new qpointer: 5
+current time: 548 | old qpointer: 4 | new qpointer: 4
 current process: 1023
-current time: 730 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 770 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 810 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 830 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 850 | old qpointer: 4 | new qpointer: 4
-current process: 13
-current time: 870 | old qpointer: 4 | new qpointer: 4
+current time: 568 | old qpointer: 4 | new qpointer: 3
 current process: 1023
-current time: 890 | old qpointer: 4 | new qpointer: 4
+current time: 598 | old qpointer: 3 | new qpointer: 3
 current process: 1023
-current time: 910 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 930 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 950 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 970 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 1000 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 1030 | old qpointer: 5 | new qpointer: 5
+current time: 628 | old qpointer: 3 | new qpointer: 2
 current process: 1023
-current time: 1060 | old qpointer: 5 | new qpointer: 5
+current time: 668 | old qpointer: 2 | new qpointer: 2
 current process: 1023
-current time: 1090 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 1120 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 1150 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 1180 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 1210 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 1230 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 1250 | old qpointer: 4 | new qpointer: 4
+current time: 708 | old qpointer: 2 | new qpointer: 1
 current process: 1023
-current time: 1270 | old qpointer: 4 | new qpointer: 4
+current time: 758 | old qpointer: 1 | new qpointer: 1
 current process: 1023
-current time: 1290 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 1310 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 1330 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 1350 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 1370 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 1400 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 1430 | old qpointer: 3 | new qpointer: 3
+current time: 808 | old qpointer: 1 | new qpointer: 0
 current process: 1023
-current time: 1460 | old qpointer: 3 | new qpointer: 3
+current time: 868 | old qpointer: 0 | new qpointer: 0
 current process: 1023
-current time: 1490 | old qpointer: 3 | new qpointer: 3
-current process: 1781200656
-current time: 1500 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 1530 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 1560 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 1580 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 1610 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 1640 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 1680 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 1690 | old qpointer: 5 | new qpointer: 5
+current time: 928 | old qpointer: 0 | new qpointer: 0
 current process: 1023
-current time: 1730 | old qpointer: 5 | new qpointer: 5
+current time: 988 | old qpointer: 0 | new qpointer: 0
 current process: 1023
-current time: 1770 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 1790 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 1810 | old qpointer: 4 | new qpointer: 4
+current time: 1000 | old qpointer: 0 | new qpointer: 5
 current process: 1023
-current time: 1830 | old qpointer: 4 | new qpointer: 4
+current time: 1048 | old qpointer: 5 | new qpointer: 4
 current process: 1023
-current time: 1850 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 1870 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 1890 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 1910 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 1930 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 1960 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 1990 | old qpointer: 3 | new qpointer: 3
+current time: 1068 | old qpointer: 4 | new qpointer: 4
 current process: 1023
-current time: 2000 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 2030 | old qpointer: 5 | new qpointer: 5
+current time: 1088 | old qpointer: 4 | new qpointer: 3
 current process: 1023
-current time: 2060 | old qpointer: 5 | new qpointer: 5
+current time: 1118 | old qpointer: 3 | new qpointer: 3
 current process: 1023
-current time: 2080 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 2110 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 2140 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 2170 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 2200 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 2240 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 2250 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 2270 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 2290 | old qpointer: 4 | new qpointer: 4
+current time: 1148 | old qpointer: 3 | new qpointer: 2
 current process: 1023
-current time: 2310 | old qpointer: 4 | new qpointer: 4
+current time: 1188 | old qpointer: 2 | new qpointer: 2
 current process: 1023
-current time: 2330 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 2350 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 2370 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 2390 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 2410 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 2440 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 2470 | old qpointer: 3 | new qpointer: 3
+current time: 1228 | old qpointer: 2 | new qpointer: 1
 current process: 1023
-current time: 2500 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 2540 | old qpointer: 5 | new qpointer: 5
+current time: 1278 | old qpointer: 1 | new qpointer: 1
 current process: 1023
-current time: 2570 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 2600 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 2630 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 2660 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 2690 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 2730 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 2750 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 2770 | old qpointer: 4 | new qpointer: 4
+current time: 1328 | old qpointer: 1 | new qpointer: 0
 current process: 1023
-current time: 2790 | old qpointer: 4 | new qpointer: 4
+current time: 1388 | old qpointer: 0 | new qpointer: 0
 current process: 1023
-current time: 2810 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 2830 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 2850 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 2870 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 2890 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 2920 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 2950 | old qpointer: 3 | new qpointer: 3
+current time: 1448 | old qpointer: 0 | new qpointer: 0
 current process: 1023
-current time: 2980 | old qpointer: 3 | new qpointer: 3
+current time: 1500 | old qpointer: 0 | new qpointer: 5
 current process: 1023
-current time: 3000 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 3020 | old qpointer: 5 | new qpointer: 5
+current time: 1508 | old qpointer: 5 | new qpointer: 5
 current process: 1023
-current time: 3030 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 3060 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 3090 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 3120 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 3150 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 3190 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 3210 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 3230 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 3250 | old qpointer: 4 | new qpointer: 4
+current time: 1568 | old qpointer: 5 | new qpointer: 4
 current process: 1023
-current time: 3270 | old qpointer: 4 | new qpointer: 4
+current time: 1588 | old qpointer: 4 | new qpointer: 4
 current process: 1023
-current time: 3290 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 3310 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 3330 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 3350 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 3370 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 3400 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 3430 | old qpointer: 3 | new qpointer: 3
+current time: 1608 | old qpointer: 4 | new qpointer: 3
 current process: 1023
-current time: 3460 | old qpointer: 3 | new qpointer: 3
+current time: 1638 | old qpointer: 3 | new qpointer: 3
 current process: 1023
-current time: 3490 | old qpointer: 3 | new qpointer: 3
-current process: 1781200656
-current time: 3500 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 3530 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 3560 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 3580 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 3610 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 3640 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 3680 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 3690 | old qpointer: 5 | new qpointer: 5
+current time: 1668 | old qpointer: 3 | new qpointer: 2
 current process: 1023
-current time: 3730 | old qpointer: 5 | new qpointer: 5
+current time: 1708 | old qpointer: 2 | new qpointer: 2
 current process: 1023
-current time: 3770 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 3790 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 3810 | old qpointer: 4 | new qpointer: 4
+current time: 1748 | old qpointer: 2 | new qpointer: 1
 current process: 1023
-current time: 3830 | old qpointer: 4 | new qpointer: 4
+current time: 1798 | old qpointer: 1 | new qpointer: 1
 current process: 1023
-current time: 3850 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 3870 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 3890 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 3910 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 3930 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 3960 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 3990 | old qpointer: 3 | new qpointer: 3
+current time: 1848 | old qpointer: 1 | new qpointer: 0
 current process: 1023
-current time: 4000 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 4030 | old qpointer: 5 | new qpointer: 5
+current time: 1908 | old qpointer: 0 | new qpointer: 0
 current process: 1023
-current time: 4060 | old qpointer: 5 | new qpointer: 5
+current time: 1968 | old qpointer: 0 | new qpointer: 0
 current process: 1023
-current time: 4080 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 4110 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 4140 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 4170 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 4200 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 4240 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 4250 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 4270 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 4290 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 4310 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 4330 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 4350 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 4370 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 4390 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 4410 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 4440 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 4470 | old qpointer: 3 | new qpointer: 3
-current process: 1023
-current time: 4500 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 4540 | old qpointer: 5 | new qpointer: 5
-current process: 1023
-current time: 4570 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 4600 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 4630 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 4660 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 4690 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 4730 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 4750 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 4770 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 4790 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 4810 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 4830 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 4850 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 4870 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 4890 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 4920 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 4950 | old qpointer: 3 | new qpointer: 3
-current process: 1023
-current time: 4980 | old qpointer: 3 | new qpointer: 3
-current process: 1023
-current time: 5000 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 5020 | old qpointer: 5 | new qpointer: 5
-current process: 1023
-current time: 5030 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 5060 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 5090 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 5120 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 5150 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 5190 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 5210 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 5230 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 5250 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 5270 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 5290 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 5310 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 5330 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 5350 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 5370 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 5400 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 5430 | old qpointer: 3 | new qpointer: 3
-current process: 1023
-current time: 5460 | old qpointer: 3 | new qpointer: 3
-current process: 1023
-current time: 5490 | old qpointer: 3 | new qpointer: 3
-current process: 1781200656
-current time: 5500 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 5530 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 5560 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 5580 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 5610 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 5640 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 5680 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 5690 | old qpointer: 5 | new qpointer: 5
-current process: 1023
-current time: 5730 | old qpointer: 5 | new qpointer: 5
-current process: 1023
-current time: 5770 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 5790 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 5810 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 5830 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 5850 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 5870 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 5890 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 5910 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 5930 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 5960 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 5990 | old qpointer: 3 | new qpointer: 3
-current process: 1023
-current time: 6000 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 6030 | old qpointer: 5 | new qpointer: 5
-current process: 1023
-current time: 6060 | old qpointer: 5 | new qpointer: 5
-current process: 1023
-current time: 6080 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 6110 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 6140 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 6170 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 6200 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 6240 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 6250 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 6270 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 6290 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 6310 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 6330 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 6350 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
-current time: 6370 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 6390 | old qpointer: 4 | new qpointer: 4
-current process: 1781200720
-current time: 6410 | old qpointer: 4 | new qpointer: 3
-current process: 0
-current time: 6440 | old qpointer: 3 | new qpointer: 3
-current process: 0
-current time: 6470 | old qpointer: 3 | new qpointer: 3
-current process: 1023
-current time: 6500 | old qpointer: 3 | new qpointer: 5
-current process: 0
-current time: 6540 | old qpointer: 5 | new qpointer: 5
-current process: 1023
-current time: 6570 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 6600 | old qpointer: 5 | new qpointer: 5
-current process: 1781200656
-current time: 6630 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 6660 | old qpointer: 5 | new qpointer: 5
-current process: 1781200720
-current time: 6690 | old qpointer: 5 | new qpointer: 5
-current process: 0
-current time: 6730 | old qpointer: 5 | new qpointer: 4
-current process: 0
-current time: 6750 | old qpointer: 4 | new qpointer: 4
-current process: 0
-current time: 6770 | old qpointer: 4 | new qpointer: 4
-current process: 1023
-current time: 6790 | old qpointer: 4 | new qpointer: 4
-current process: 1781200656
+current time: 1988 | old qpointer: 0 | new qpointer: -1
